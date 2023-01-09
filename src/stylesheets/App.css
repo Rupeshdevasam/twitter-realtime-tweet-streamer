@@ -1,0 +1,156 @@
+html {
+  scroll-behavior: smooth;
+}
+.App {
+  text-align: center;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-bottom: 10px;
+}
+
+iframe {
+  z-index: -1 !important;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ui.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1120px;
+  align-items: center;
+}
+
+.loadmore:hover {
+  color: rgb(4, 84, 138);
+}
+
+.loadmore {
+  z-index: 9999;
+  margin: 10px auto;
+  width: fit-content;
+  background: transparent;
+  border: none;
+  color: rgb(29, 155, 240);
+  font-weight: 400;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/*notification*/
+.notification {
+  display: inline-block;
+  position: relative;
+  padding: 0.3em 0.6em;
+  background: #3498db;
+  border-radius: 0.2em;
+  font-size: 1.3rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.notification::before,
+.notification::after {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.notification::before {
+  display: block;
+  content: "\f0f3";
+  font-family: "Font Awesome\ 5 Free";
+  transform-origin: top center;
+}
+
+.notification::after {
+  font-family: Arial;
+  font-size: 0.7em;
+  font-weight: 700;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  padding: 5px 8px;
+  line-height: 100%;
+  border: 2px #fff solid;
+  border-radius: 60px;
+  background: #3498db;
+  opacity: 0;
+  content: attr(data-count);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.notification.notify::before {
+  animation: ring 1.5s ease;
+}
+
+.notification.show-count::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(35deg);
+  }
+  12.5% {
+    transform: rotate(-30deg);
+  }
+  25% {
+    transform: rotate(25deg);
+  }
+  37.5% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  62.5% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
